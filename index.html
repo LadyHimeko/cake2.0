@@ -1,1 +1,519 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>💚 A Little Birthday Surprise</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MUSIC BUTTON
+    ====================================================== -->
+
+    <button class="music-toggle"
+            id="musicToggle"
+            onclick="toggleMusic()"
+            aria-label="Toggle music">
+
+        🔊
+
+    </button>
+
+
+    <!-- =====================================================
+         BACKGROUND DECORATIONS
+    ====================================================== -->
+
+    <div id="backgroundDecorations"
+         class="background-decorations">
+
+    </div>
+
+
+    <!-- =====================================================
+         PAGE 1 — HOME
+    ====================================================== -->
+
+    <section class="page active"
+             id="home">
+
+
+        <!-- Decorative sparkles -->
+
+        <div class="floating-sparkle sparkle-1">
+            ✦
+        </div>
+
+        <div class="floating-sparkle sparkle-2">
+            ✧
+        </div>
+
+        <div class="floating-sparkle sparkle-3">
+            ♡
+        </div>
+
+
+        <div class="welcome-container">
+
+
+            <p class="small-intro">
+                🌿 a little something for you...
+            </p>
+
+
+            <h1>
+                Hey, Birthday Boy! 🎂
+            </h1>
+
+
+            <p class="subtitle">
+                I made something for you.
+            </p>
+
+
+            <!-- =================================================
+                 CLICKABLE COVER PHOTO
+
+                 Change cover.jpg to your own picture.
+            ================================================== -->
+
+            <button class="cover-photo-button"
+                    onclick="startBirthdayExperience()"
+                    aria-label="Open birthday surprise">
+
+
+                <div class="photo-frame">
+
+                    <img src="images/cover.jpg"
+                         alt="Birthday cover photo">
+
+                    <div class="photo-shine"></div>
+
+                </div>
+
+
+                <span class="click-hint">
+                    ✨ click me ✨
+                </span>
+
+
+            </button>
+
+
+            <p class="tiny-text">
+                (yes, actually click the picture 👀)
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 2 — THREE PHOTO MENU
+    ====================================================== -->
+
+    <section class="page"
+             id="menu">
+
+
+        <div class="menu-container">
+
+
+            <p class="small-intro">
+                🌱 you made it!
+            </p>
+
+
+            <h2>
+                Three little things for you 💚
+            </h2>
+
+
+            <p class="menu-subtitle">
+                Click each one. No skipping. I will know. 👀
+            </p>
+
+
+
+            <!-- =================================================
+                 THREE CLICKABLE PHOTOS
+            ================================================== -->
+
+            <div class="photo-menu">
+
+
+                <!-- PHOTO 1 -->
+
+                <button class="memory-card"
+                        onclick="openMemory(1)">
+
+                    <div class="card-image">
+
+                        <img src="images/photo1.jpg"
+                             alt="Birthday memory one">
+
+                        <div class="card-number">
+                            01
+                        </div>
+
+                    </div>
+
+                    <span>
+                        Open me 🌿
+                    </span>
+
+                </button>
+
+
+
+                <!-- PHOTO 2 -->
+
+                <button class="memory-card"
+                        onclick="openMemory(2)">
+
+                    <div class="card-image">
+
+                        <img src="images/photo2.jpg"
+                             alt="Birthday memory two">
+
+                        <div class="card-number">
+                            02
+                        </div>
+
+                    </div>
+
+                    <span>
+                        Open me 🌱
+                    </span>
+
+                </button>
+
+
+
+                <!-- PHOTO 3 -->
+
+                <button class="memory-card"
+                        onclick="openMemory(3)">
+
+                    <div class="card-image">
+
+                        <img src="images/photo3.jpg"
+                             alt="Birthday memory three">
+
+                        <div class="card-number">
+                            03
+                        </div>
+
+                    </div>
+
+                    <span>
+                        Open me 🍃
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROGRESS
+            ================================================== -->
+
+            <div class="progress-container">
+
+                <span id="progressText">
+                    0 / 3 discovered
+                </span>
+
+
+                <div class="progress-bar">
+
+                    <div id="progressFill"></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FINAL BUTTON
+
+                 Hidden until all 3 memories are opened.
+            ================================================== -->
+
+            <div class="final-button-container"
+                 id="finalButtonContainer">
+
+
+                <p id="lockedMessage">
+                    🔒 There might be something else...
+                </p>
+
+
+                <button id="finalButton"
+                        onclick="showSurprise()">
+
+                    ✨ CLICK ME ✨
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- BACK HOME -->
+
+            <button class="back-button"
+                    onclick="goToPage('home')">
+
+                ← Go back
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 3 — MESSAGE + QR
+    ====================================================== -->
+
+    <section class="page"
+             id="memory">
+
+
+        <div class="memory-container">
+
+
+            <!-- BACK BUTTON -->
+
+            <button class="top-back-button"
+                    onclick="goToPage('menu')">
+
+                ← Back to memories
+
+            </button>
+
+
+
+            <div class="message-card">
+
+
+                <div class="message-number"
+                     id="messageNumber">
+
+                    01
+
+                </div>
+
+
+
+                <h2 id="messageTitle">
+                    A little message 💚
+                </h2>
+
+
+
+                <!-- MESSAGE IS INSERTED BY JAVASCRIPT -->
+
+                <div class="message-text"
+                     id="messageText">
+
+                </div>
+
+
+
+                <!-- QR CODE -->
+
+                <div class="qr-section">
+
+
+                    <p>
+                        Scan this 👀
+                    </p>
+
+
+                    <div class="qr-frame">
+
+                        <img id="qrImage"
+                             src="qr/qr1.png"
+                             alt="QR code">
+
+                    </div>
+
+
+                    <small>
+                        There's something waiting for you...
+                    </small>
+
+
+                </div>
+
+
+
+                <button class="green-button"
+                        onclick="goToPage('menu')">
+
+                    ← Back to menu
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 4 — FINAL SURPRISE
+    ====================================================== -->
+
+    <section class="page surprise-page"
+             id="surprise">
+
+
+        <!-- Confetti container -->
+
+        <div id="confettiContainer"></div>
+
+
+        <!-- Balloon container -->
+
+        <div id="balloonContainer"></div>
+
+
+
+        <div class="surprise-content">
+
+
+            <div class="surprise-stars">
+                ✦ ✧ ✦
+            </div>
+
+
+            <p class="surprise-small">
+                🎉 SURPRISE! 🎉
+            </p>
+
+
+            <h1>
+                HAPPY BIRTHDAY! 💚
+            </h1>
+
+
+
+            <!-- FINAL PHOTO -->
+
+            <div class="surprise-photo">
+
+                <img src="images/surprise.jpg"
+                     alt="Birthday surprise photo">
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FINAL PERSONAL MESSAGE
+
+                 ✏️ CHANGE THIS TO YOUR OWN MESSAGE
+            ================================================== -->
+
+            <div class="final-message">
+
+
+                <p>
+                    Happy birthday! 🎂
+                </p>
+
+
+                <p>
+                    I hope today brings you lots of happiness,
+                    laughter, good food, and all the little things
+                    that make you smile.
+                </p>
+
+
+                <p>
+                    I hope you have an amazing year ahead.
+                    You deserve lots of good things. 🌿
+                </p>
+
+
+                <p class="heart">
+                    ♡
+                </p>
+
+
+            </div>
+
+
+
+            <!-- RESTART -->
+
+            <button class="restart-button"
+                    onclick="restartExperience()">
+
+                ↻ Start over
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT FILES
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+    <script src="sound.js"></script>
+
+
+</body>
+
+</html>
+```
