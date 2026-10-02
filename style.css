@@ -1,1 +1,1793 @@
 
+/* ============================================================
+   BIRTHDAY WEBSITE
+   Pastel Green Theme 🌿
+============================================================ */
+
+
+/* ============================================================
+   RESET
+============================================================ */
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+}
+
+
+body {
+
+    font-family: "Quicksand", sans-serif;
+
+    color: #285943;
+
+    background: #dff3e4;
+
+}
+
+
+/* ============================================================
+   PAGE SYSTEM
+============================================================ */
+
+.page {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(1.03);
+
+
+    transition:
+
+        opacity 0.5s ease,
+
+        transform 0.5s ease,
+
+        visibility 0.5s;
+
+
+    background:
+
+        radial-gradient(
+
+            circle at 20% 20%,
+
+            rgba(255,255,255,0.7),
+
+            transparent 30%
+
+        ),
+
+        radial-gradient(
+
+            circle at 80% 80%,
+
+            rgba(170,220,180,0.4),
+
+            transparent 30%
+
+        ),
+
+        #dff3e4;
+
+}
+
+
+.page.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+
+    z-index: 10;
+
+}
+
+
+/* ============================================================
+   TEXT
+============================================================ */
+
+h1,
+h2 {
+
+    font-family: "Baloo 2", cursive;
+
+}
+
+
+h1 {
+
+    font-size:
+
+        clamp(2.5rem, 7vw, 5rem);
+
+    line-height: 1;
+
+}
+
+
+h2 {
+
+    font-size:
+
+        clamp(2rem, 5vw, 3.5rem);
+
+    line-height: 1.1;
+
+}
+
+
+.small-intro {
+
+    font-size: 0.95rem;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.subtitle {
+
+    margin-top: 10px;
+
+    font-size: 1.15rem;
+
+}
+
+
+.menu-subtitle {
+
+    margin-top: 8px;
+
+    margin-bottom: 25px;
+
+    font-size: 1rem;
+
+}
+
+
+/* ============================================================
+   MUSIC BUTTON
+============================================================ */
+
+.music-toggle {
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    z-index: 9999;
+
+
+    width: 45px;
+
+    height: 45px;
+
+
+    border: none;
+
+    border-radius: 50%;
+
+
+    background:
+
+        rgba(255,255,255,0.75);
+
+
+    backdrop-filter: blur(8px);
+
+
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+
+    box-shadow:
+
+        0 8px 20px
+
+        rgba(40,89,67,0.12);
+
+
+    transition:
+
+        transform 0.2s ease,
+
+        background 0.2s ease;
+
+}
+
+
+.music-toggle:hover {
+
+    transform: scale(1.1);
+
+    background: white;
+
+}
+
+
+.music-toggle:active {
+
+    transform: scale(0.9);
+
+}
+
+
+/* ============================================================
+   HOME PAGE
+============================================================ */
+
+.welcome-container {
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 5;
+
+}
+
+
+/* ============================================================
+   COVER PHOTO
+============================================================ */
+
+.cover-photo-button {
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+
+    margin-top: 30px;
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+
+    color: #285943;
+
+
+    transition:
+
+        transform 0.3s ease;
+
+}
+
+
+.cover-photo-button:hover {
+
+    transform:
+
+        translateY(-8px)
+
+        rotate(-1deg);
+
+}
+
+
+.cover-photo-button:active {
+
+    transform: scale(0.95);
+
+}
+
+
+.photo-frame {
+
+    width:
+
+        min(65vw, 330px);
+
+    height:
+
+        min(65vw, 330px);
+
+
+    padding: 10px;
+
+
+    background: #fffdf5;
+
+
+    border-radius: 35px;
+
+
+    box-shadow:
+
+        0 20px 40px
+
+        rgba(40,89,67,0.15),
+
+        0 5px 10px
+
+        rgba(40,89,67,0.1);
+
+
+    position: relative;
+
+    overflow: hidden;
+
+
+    transform: rotate(-2deg);
+
+}
+
+
+.photo-frame img {
+
+    width: 100%;
+
+    height: 100%;
+
+
+    object-fit: cover;
+
+
+    border-radius: 27px;
+
+}
+
+
+/* ============================================================
+   PHOTO SHINE
+============================================================ */
+
+.photo-shine {
+
+    position: absolute;
+
+
+    top: -100%;
+
+    left: -100%;
+
+
+    width: 50%;
+
+    height: 300%;
+
+
+    background:
+
+        rgba(255,255,255,0.3);
+
+
+    transform: rotate(30deg);
+
+
+    animation:
+
+        shine 4s infinite;
+
+}
+
+
+@keyframes shine {
+
+    0% {
+
+        left: -100%;
+
+    }
+
+
+    30%,
+    100% {
+
+        left: 200%;
+
+    }
+
+}
+
+
+/* ============================================================
+   CLICK HINT
+============================================================ */
+
+.click-hint {
+
+    margin-top: 20px;
+
+
+    background: #78b892;
+
+    color: white;
+
+
+    padding:
+
+        9px 22px;
+
+
+    border-radius: 30px;
+
+
+    font-weight: 700;
+
+
+    box-shadow:
+
+        0 8px 20px
+
+        rgba(40,89,67,0.18);
+
+
+    animation:
+
+        gentleBounce 2s infinite;
+
+}
+
+
+@keyframes gentleBounce {
+
+    0%,
+    100% {
+
+        transform:
+
+            translateY(0);
+
+    }
+
+
+    50% {
+
+        transform:
+
+            translateY(-5px);
+
+    }
+
+}
+
+
+.tiny-text {
+
+    margin-top: 10px;
+
+    font-size: 0.75rem;
+
+    opacity: 0.7;
+
+}
+
+
+/* ============================================================
+   SPARKLES
+============================================================ */
+
+.floating-sparkle {
+
+    position: absolute;
+
+    font-size: 2rem;
+
+    opacity: 0.5;
+
+
+    animation:
+
+        floatSparkle 4s ease-in-out infinite;
+
+}
+
+
+.sparkle-1 {
+
+    top: 15%;
+
+    left: 15%;
+
+}
+
+
+.sparkle-2 {
+
+    top: 20%;
+
+    right: 15%;
+
+    animation-delay: 1s;
+
+}
+
+
+.sparkle-3 {
+
+    bottom: 15%;
+
+    left: 20%;
+
+    animation-delay: 2s;
+
+}
+
+
+@keyframes floatSparkle {
+
+    0%,
+    100% {
+
+        transform:
+
+            translateY(0)
+
+            rotate(0);
+
+    }
+
+
+    50% {
+
+        transform:
+
+            translateY(-15px)
+
+            rotate(15deg);
+
+    }
+
+}
+
+
+/* ============================================================
+   MENU
+============================================================ */
+
+.menu-container {
+
+    width:
+
+        min(1100px,92%);
+
+
+    text-align: center;
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.photo-menu {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+
+    gap: 25px;
+
+
+    width: 100%;
+
+}
+
+
+/* ============================================================
+   MEMORY CARDS
+============================================================ */
+
+.memory-card {
+
+    width:
+
+        min(28vw,250px);
+
+
+    border: none;
+
+    background: transparent;
+
+
+    cursor: pointer;
+
+
+    color: #285943;
+
+
+    transition:
+
+        transform 0.3s ease;
+
+}
+
+
+.memory-card:hover {
+
+    transform:
+
+        translateY(-12px)
+
+        rotate(-2deg);
+
+}
+
+
+.memory-card:nth-child(2):hover {
+
+    transform:
+
+        translateY(-12px)
+
+        rotate(2deg);
+
+}
+
+
+.memory-card:active {
+
+    transform:
+
+        scale(0.94);
+
+}
+
+
+.card-image {
+
+    position: relative;
+
+
+    background: white;
+
+
+    padding: 8px;
+
+
+    border-radius: 20px;
+
+
+    box-shadow:
+
+        0 15px 30px
+
+        rgba(40,89,67,0.15);
+
+
+    aspect-ratio: 1 / 1;
+
+}
+
+
+.card-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+
+    object-fit: cover;
+
+
+    border-radius: 14px;
+
+}
+
+
+.card-number {
+
+    position: absolute;
+
+
+    top: -10px;
+
+    right: -10px;
+
+
+    width: 40px;
+
+    height: 40px;
+
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+
+    background: #78b892;
+
+    color: white;
+
+
+    border-radius: 50%;
+
+
+    font-weight: 700;
+
+
+    border:
+
+        4px solid #dff3e4;
+
+}
+
+
+.memory-card span {
+
+    display: block;
+
+
+    margin-top: 12px;
+
+
+    font-weight: 700;
+
+}
+
+
+/* ============================================================
+   OPENED CARDS
+============================================================ */
+
+.memory-card.opened .card-image {
+
+    border:
+
+        4px solid #78b892;
+
+}
+
+
+.memory-card.opened::after {
+
+    content: "✓ opened";
+
+
+    display: block;
+
+
+    margin-top: 3px;
+
+
+    font-size: 0.75rem;
+
+
+    color: #4f916d;
+
+}
+
+
+/* ============================================================
+   PROGRESS
+============================================================ */
+
+.progress-container {
+
+    width:
+
+        min(500px,90%);
+
+
+    margin-top: 25px;
+
+
+    font-size: 0.8rem;
+
+}
+
+
+.progress-bar {
+
+    height: 8px;
+
+
+    margin-top: 8px;
+
+
+    background:
+
+        rgba(40,89,67,0.12);
+
+
+    border-radius: 20px;
+
+
+    overflow: hidden;
+
+}
+
+
+#progressFill {
+
+    height: 100%;
+
+
+    width: 0%;
+
+
+    background: #78b892;
+
+
+    border-radius: inherit;
+
+
+    transition:
+
+        width 0.5s ease;
+
+}
+
+
+/* ============================================================
+   FINAL BUTTON
+============================================================ */
+
+.final-button-container {
+
+    margin-top: 18px;
+
+
+    min-height: 70px;
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+#lockedMessage {
+
+    font-size: 0.8rem;
+
+    opacity: 0.65;
+
+}
+
+
+#finalButton {
+
+    display: none;
+
+
+    border: none;
+
+
+    background: #78b892;
+
+    color: white;
+
+
+    font-family:
+
+        "Baloo 2", cursive;
+
+
+    font-size: 1.3rem;
+
+    font-weight: 700;
+
+
+    padding:
+
+        10px 28px;
+
+
+    border-radius: 30px;
+
+
+    cursor: pointer;
+
+
+    box-shadow:
+
+        0 10px 25px
+
+        rgba(40,89,67,0.2);
+
+
+    animation:
+
+        buttonAppear 0.7s ease,
+
+        gentleBounce 2s infinite;
+
+
+    margin-top: 5px;
+
+}
+
+
+#finalButton:hover {
+
+    background: #5fa779;
+
+    transform: scale(1.08);
+
+}
+
+
+@keyframes buttonAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.3);
+
+    }
+
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+/* ============================================================
+   BACK BUTTONS
+============================================================ */
+
+.back-button,
+.top-back-button,
+.green-button,
+.restart-button {
+
+    border: none;
+
+
+    background:
+
+        rgba(255,255,255,0.65);
+
+
+    color: #285943;
+
+
+    font-family:
+
+        "Quicksand", sans-serif;
+
+
+    font-weight: 700;
+
+
+    padding:
+
+        9px 18px;
+
+
+    border-radius: 25px;
+
+
+    cursor: pointer;
+
+
+    transition:
+
+        background 0.2s ease,
+
+        transform 0.2s ease;
+
+}
+
+
+.back-button:hover,
+.top-back-button:hover,
+.green-button:hover,
+.restart-button:hover {
+
+    background: white;
+
+    transform: translateY(-2px);
+
+}
+
+
+.back-button {
+
+    margin-top: 10px;
+
+}
+
+
+.top-back-button {
+
+    position: absolute;
+
+
+    top: 25px;
+
+    left: 25px;
+
+}
+
+
+/* ============================================================
+   MEMORY PAGE
+============================================================ */
+
+.memory-container {
+
+    width:
+
+        min(700px,92%);
+
+
+    position: relative;
+
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+.message-card {
+
+    width: 100%;
+
+
+    max-height: 90vh;
+
+
+    overflow-y: auto;
+
+
+    background:
+
+        rgba(255,255,255,0.85);
+
+
+    border-radius: 35px;
+
+
+    padding: 40px;
+
+
+    text-align: center;
+
+
+    box-shadow:
+
+        0 25px 60px
+
+        rgba(40,89,67,0.15);
+
+}
+
+
+.message-number {
+
+    width: 45px;
+
+    height: 45px;
+
+
+    margin:
+
+        0 auto 10px;
+
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+
+    background: #78b892;
+
+    color: white;
+
+
+    border-radius: 50%;
+
+
+    font-weight: 700;
+
+}
+
+
+.message-text {
+
+    margin:
+
+        20px auto;
+
+
+    max-width: 520px;
+
+
+    font-size: 1.05rem;
+
+
+    line-height: 1.8;
+
+
+    white-space: pre-line;
+
+}
+
+
+/* ============================================================
+   QR CODE
+============================================================ */
+
+.qr-section {
+
+    margin: 20px 0;
+
+}
+
+
+.qr-section p {
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+
+}
+
+
+.qr-frame {
+
+    width: 170px;
+
+    height: 170px;
+
+
+    margin: auto;
+
+
+    padding: 10px;
+
+
+    background: white;
+
+
+    border-radius: 18px;
+
+
+    box-shadow:
+
+        0 8px 20px
+
+        rgba(40,89,67,0.12);
+
+}
+
+
+.qr-frame img {
+
+    width: 100%;
+
+    height: 100%;
+
+
+    object-fit: contain;
+
+}
+
+
+.qr-section small {
+
+    display: block;
+
+
+    margin-top: 10px;
+
+
+    opacity: 0.65;
+
+}
+
+
+.green-button {
+
+    background: #78b892;
+
+    color: white;
+
+
+    margin-top: 10px;
+
+}
+
+
+.green-button:hover {
+
+    background: #5fa779;
+
+}
+
+
+/* ============================================================
+   SURPRISE PAGE
+============================================================ */
+
+.surprise-page {
+
+    background:
+
+        radial-gradient(
+
+            circle at center,
+
+            #effaf1,
+
+            #ccebd4
+
+        );
+
+
+    overflow: hidden;
+
+}
+
+
+.surprise-content {
+
+    position: relative;
+
+    z-index: 20;
+
+
+    width:
+
+        min(600px,90%);
+
+
+    text-align: center;
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+
+    animation:
+
+        surpriseAppear 1s ease;
+
+}
+
+
+@keyframes surpriseAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.7);
+
+    }
+
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+.surprise-small {
+
+    font-weight: 700;
+
+
+    letter-spacing: 3px;
+
+
+    margin-bottom: 8px;
+
+}
+
+
+.surprise-content h1 {
+
+    color: #4f916d;
+
+
+    text-shadow:
+
+        2px 2px 0 white;
+
+}
+
+
+.surprise-stars {
+
+    color: #d9a83f;
+
+
+    font-size: 2rem;
+
+
+    animation:
+
+        sparkle 1.5s infinite alternate;
+
+}
+
+
+@keyframes sparkle {
+
+    from {
+
+        transform: scale(1);
+
+    }
+
+
+    to {
+
+        transform: scale(1.15);
+
+    }
+
+}
+
+
+/* ============================================================
+   SURPRISE PHOTO
+============================================================ */
+
+.surprise-photo {
+
+    width:
+
+        min(70vw,350px);
+
+
+    height:
+
+        min(40vh,300px);
+
+
+    margin: 20px 0;
+
+
+    padding: 8px;
+
+
+    background: white;
+
+
+    border-radius: 25px;
+
+
+    box-shadow:
+
+        0 20px 50px
+
+        rgba(40,89,67,0.2);
+
+
+    transform: rotate(-2deg);
+
+}
+
+
+.surprise-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+
+    object-fit: cover;
+
+
+    border-radius: 18px;
+
+}
+
+
+/* ============================================================
+   FINAL MESSAGE
+============================================================ */
+
+.final-message {
+
+    max-width: 520px;
+
+
+    font-size: 1rem;
+
+
+    line-height: 1.7;
+
+}
+
+
+.final-message p {
+
+    margin-bottom: 10px;
+
+}
+
+
+.final-message .heart {
+
+    font-size: 2rem;
+
+
+    color: #78b892;
+
+}
+
+
+/* ============================================================
+   RESTART BUTTON
+============================================================ */
+
+.restart-button {
+
+    margin-top: 10px;
+
+
+    background:
+
+        rgba(255,255,255,0.8);
+
+}
+
+
+/* ============================================================
+   CONFETTI
+============================================================ */
+
+.confetti {
+
+    position: absolute;
+
+
+    width: 10px;
+
+    height: 18px;
+
+
+    top: -30px;
+
+
+    opacity: 0.9;
+
+
+    animation:
+
+        confettiFall
+
+        linear
+
+        forwards;
+
+}
+
+
+@keyframes confettiFall {
+
+    0% {
+
+        transform:
+
+            translateY(-30px)
+
+            rotate(0deg);
+
+    }
+
+
+    100% {
+
+        transform:
+
+            translateY(110vh)
+
+            rotate(720deg);
+
+    }
+
+}
+
+
+/* ============================================================
+   BALLOONS
+============================================================ */
+
+.balloon {
+
+    position: absolute;
+
+
+    bottom: -150px;
+
+
+    width: 55px;
+
+    height: 70px;
+
+
+    border-radius:
+
+        50% 50% 45% 45%;
+
+
+    opacity: 0.8;
+
+
+    animation:
+
+        balloonFloat
+
+        linear
+
+        infinite;
+
+}
+
+
+.balloon::after {
+
+    content: "";
+
+
+    position: absolute;
+
+
+    width: 1px;
+
+    height: 90px;
+
+
+    background:
+
+        rgba(40,89,67,0.4);
+
+
+    left: 50%;
+
+    top: 68px;
+
+}
+
+
+@keyframes balloonFloat {
+
+    0% {
+
+        transform:
+
+            translateY(0)
+
+            rotate(-5deg);
+
+    }
+
+
+    50% {
+
+        transform:
+
+            translateY(-55vh)
+
+            rotate(5deg);
+
+    }
+
+
+    100% {
+
+        transform:
+
+            translateY(-120vh)
+
+            rotate(-5deg);
+
+    }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — TABLETS / PHONES
+============================================================ */
+
+@media (max-width: 700px) {
+
+
+    .photo-menu {
+
+        gap: 10px;
+
+    }
+
+
+    .memory-card {
+
+        width: 29vw;
+
+    }
+
+
+    .memory-card span {
+
+        font-size: 0.75rem;
+
+    }
+
+
+    .message-card {
+
+        padding: 30px 20px;
+
+        max-height: 85vh;
+
+    }
+
+
+    .top-back-button {
+
+        top: 12px;
+
+        left: 12px;
+
+    }
+
+
+    .photo-frame {
+
+        width: 240px;
+
+        height: 240px;
+
+    }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — SHORT SCREENS
+============================================================ */
+
+@media (max-height: 700px) {
+
+
+    .photo-frame {
+
+        width: 190px;
+
+        height: 190px;
+
+        margin-top: 10px;
+
+    }
+
+
+    .cover-photo-button {
+
+        margin-top: 10px;
+
+    }
+
+
+    .menu-subtitle {
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .progress-container {
+
+        margin-top: 10px;
+
+    }
+
+
+    .message-card {
+
+        padding: 20px;
+
+    }
+
+
+    .surprise-photo {
+
+        width: 230px;
+
+        height: 170px;
+
+        margin: 10px 0;
+
+    }
+
+}
+
+
+/* ============================================================
+   ACCESSIBILITY
+============================================================ */
+
+button:focus-visible {
+
+    outline:
+
+        3px solid #4f916d;
+
+
+    outline-offset: 4px;
+
+}
+
