@@ -1,4 +1,4 @@
-```javascript
+
 /* ============================================================
    BIRTHDAY WEBSITE
    Sound Effects + Background Music 🎵
@@ -535,4 +535,4 @@ document.addEventListener(
 
     }
 );
-```
+
